@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="160dp"
         android:background="@mipmap/img">
 
         <TextView
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:text="30  度"
+                android:text="30 C"
                 android:textSize="24sp"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
@@ -287,7 +287,9 @@
             android:layout_marginLeft="80dp"
             android:layout_marginTop="5dp"
             android:textSize="20dp"
-            android:layout_gravity="center"></TextView>
+            android:layout_gravity="center">
+
+        </TextView>
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
