@@ -13,6 +13,7 @@
         android:layout_height="160dp"
         android:background="@mipmap/img">
 
+        <!--
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,13 +22,14 @@
             android:textSize="42sp">
 
         </TextView>
+        -->
     </LinearLayout>
 
     <LinearLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
 
-        android:layout_height="140dp">
+        android:layout_height="120dp">
         <LinearLayout
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -37,14 +39,15 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:src="@mipmap/temp"
-                android:layout_weight="2">
+                android:layout_weight="1">
 
             </ImageView>
             <TextView
                 android:layout_width="70dp"
+                android:id="@+id/temp_text"
                 android:layout_height="match_parent"
                 android:text="30 C"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -62,14 +65,15 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:src="@mipmap/humi"
-                android:layout_weight="2">
+                android:layout_weight="1">
 
             </ImageView>
             <TextView
                 android:layout_width="70dp"
+                android:id="@+id/humi_text"
                 android:layout_height="match_parent"
                 android:text="65  %"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -81,7 +85,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp">
+        android:layout_height="120dp">
         <LinearLayout
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -91,14 +95,15 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:src="@mipmap/smoke"
-                android:layout_weight="2">
+                android:layout_weight="1">
 
             </ImageView>
             <TextView
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:text="20 %"
-                android:textSize="24sp"
+                android:id="@+id/smoke"
+                android:text="20ppm"
+                android:textSize="22sp"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -116,14 +121,15 @@
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:src="@mipmap/co_alter"
-                android:layout_weight="2">
+                android:layout_weight="1">
 
             </ImageView>
             <TextView
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
+                android:id="@+id/codense"
                 android:text="3  %"
-                android:textSize="24sp"
+                android:textSize="22sp"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -135,7 +141,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="190dp">
+        android:layout_height="220dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -204,13 +210,20 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="风扇调速"
+                    android:textSize="20sp"
+                    android:layout_gravity="center">
 
+                </TextView>
                 <ImageView
                     android:id="@+id/speed_img"
                     android:layout_margin="40dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/fan_low"
+                    android:src="@mipmap/fan_off"
                     android:layout_weight="2"
                     android:layout_gravity="center">
 
@@ -223,15 +236,7 @@
                 android:orientation="vertical"
                 android:layout_weight="1">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:src="@mipmap/fan">
 
-                </ImageView>
                 <RadioGroup
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -292,6 +297,7 @@
 
         </TextView>
         <ImageView
+            android:id="@+id/connnect_button"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
