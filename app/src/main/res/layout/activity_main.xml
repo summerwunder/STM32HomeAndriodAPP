@@ -24,7 +24,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
 
         android:layout_height="140dp">
@@ -133,7 +133,173 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <!--LED灯 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/led"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
 
+                </ImageView>
+                <ImageView
+                    android:id="@+id/led_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/led_off"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                </ImageView>
+            </LinearLayout>
+
+            <!--蜂鸣器 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/buzzer"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+
+                </ImageView>
+                <ImageView
+                    android:id="@+id/buzzer_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/led_off"
+                    android:layout_gravity="center"
+                    android:layout_weight="1">
+                </ImageView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:background="#CCCCCC">
+        </View>
+        <!--控制风扇 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="9">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="2">
+
+                <ImageView
+                    android:layout_margin="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/fan_low"
+                    android:layout_weight="2"
+                    android:layout_gravity="center">
+
+                </ImageView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/fan">
+
+                </ImageView>
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4">
+                    <RadioButton
+                        android:id="@+id/off_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="未开启"
+                        android:layout_weight="1">
+
+                    </RadioButton>
+                    <RadioButton
+                        android:id="@+id/low_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="低速"
+                        android:layout_weight="1">
+
+                    </RadioButton>
+                    <RadioButton
+                        android:id="@+id/medium_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="中速"
+                        android:layout_weight="1">
+
+                    </RadioButton>
+                    <RadioButton
+                        android:id="@+id/high_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="高速"
+                        android:layout_weight="1">
+
+                    </RadioButton>
+                </RadioGroup>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#CCCCCC">
+    </View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务器连接状态"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20dp"
+            android:layout_gravity="center"></TextView>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+
+            android:src="@mipmap/close">
+
+        </ImageView>
+
+
+    </LinearLayout>
 </LinearLayout>
 
 
