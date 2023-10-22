@@ -86,14 +86,13 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(MainActivity.this,msg.obj.toString() ,Toast.LENGTH_SHORT).show();
                         //解码然后更改界面数据
                         decodeJson(msg);
-
                         break;
                     case 30:  //连接失败
                         Toast.makeText(MainActivity.this,"连接失败" ,Toast.LENGTH_SHORT).show();
                         connectImage.setImageResource(R.mipmap.close);
                         break;
                     case 31:   //连接成功
-                        Toast.makeText(MainActivity.this,"连接成功" ,Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this,"连接成功" ,Toast.LENGTH_SHORT).show();
                         connectImage.setImageResource(R.mipmap.open);
                         try {
                             client.subscribe(mqtt_sub_topic,1);
@@ -207,8 +206,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void deliveryComplete(IMqttDeliveryToken token) {
                     //publish后会执行到这里
-                    Log.i(TAG,"deliveryComplete---------" + token.isComplete());
-                    Toast.makeText(MainActivity.this,"发送信息",Toast.LENGTH_SHORT).show();
+                    //Log.i(TAG,"deliveryComplete---------" + token.isComplete());
+                    //Toast.makeText(MainActivity.this,"发送信息",Toast.LENGTH_SHORT).show();
                 }
                 @Override
                 public void messageArrived(String topicName, MqttMessage message)
