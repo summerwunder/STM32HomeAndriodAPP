@@ -149,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
         radioButtonOff.setChecked(true);
         ledStatus.setOnClickListener(new View.OnClickListener() {
             @Override
-            //TODO 发送LED开关的JSON数据
             public void onClick(View v) {
                 if(isLedOn){
                     isLedOn=false;
@@ -169,9 +168,11 @@ public class MainActivity extends AppCompatActivity {
                 if(isBuzzerOn){
                     isBuzzerOn=false;
                     buzzerStatus.setImageResource(R.mipmap.led_off);
+                    publishMessage(mqtt_pub_topic,"BUZZER_OFF");
                 }else{
                     isBuzzerOn=true;
                     buzzerStatus.setImageResource(R.mipmap.led_on);
+                    publishMessage(mqtt_pub_topic,"BUZZER_ON");
                 }
             }
         });
@@ -269,13 +270,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if (buttonId == R.id.off_button) {
                     speedImage.setImageResource(R.mipmap.fan_off);
-
+                    publishMessage(mqtt_pub_topic,"FAN_OFF");
                 } else if (buttonId == R.id.low_button) {
                     speedImage.setImageResource(R.mipmap.fan_low);
+                    publishMessage(mqtt_pub_topic,"FAN_LOW");
                 } else if (buttonId == R.id.medium_button) {
                     speedImage.setImageResource(R.mipmap.fan_medium);
+                    publishMessage(mqtt_pub_topic,"FAN_MEDIUM");
                 } else if (buttonId == R.id.high_button) {
                     speedImage.setImageResource(R.mipmap.fan_high);
+                    publishMessage(mqtt_pub_topic,"FAN_HIGH");
                 }
             }
         }
