@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
     //有关于联网
     //private final String host="tcp://broker.emqx.io:1883";
-    private final String host="tcp://10.79.217.111:1883";
-    //private final String host="tcp://192.168.43.222:1883";
+    //private final String host="tcp://10.79.217.111:1883";
+    private final String host="tcp://192.168.43.222:1883";
     private final String userName = "android";
     private final String passWord = "android";
     private final String mqtt_id = "admin01";
@@ -295,10 +295,10 @@ public class MainActivity extends AppCompatActivity {
             }
             JSONObject json = new JSONObject(jsonData);
 
-            double humiValue = json.getDouble("humi");
-            double tempValue = json.getDouble("temp");
+            int humiValue = json.getInt("humi");
+            int tempValue = json.getInt("temp");
             double coValue=json.getDouble("coValue");
-            int smokeValue=json.getInt("smokeValue");
+            double smokeValue=json.getDouble("smokeValue");
 
             temp.setText(tempValue+"C");
             humi.setText(humiValue+"%");
