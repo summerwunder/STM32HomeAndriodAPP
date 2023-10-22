@@ -84,30 +84,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:  //MQTT 收到消息回传   UTF8Buffer msg=new UTF8Buffer(object.toString());
                         //Toast.makeText(MainActivity.this,msg.obj.toString() ,Toast.LENGTH_SHORT).show();
-
-                        String str=msg.obj.toString();
-                        String jsonData="";
-                        try {
-                            String[] parts = str.split("---");
-                            if (parts.length == 2) {
-                                jsonData = parts[1].trim();
-                                // 创建JSONObject实例并传入JSON字符串
-                            }
-                            JSONObject json = new JSONObject(jsonData);
-
-                            double humiValue = json.getDouble("humi");
-                            double tempValue = json.getDouble("temp");
-                            double coValue=json.getDouble("coValue");
-                            int smokeValue=json.getInt("smokeValue");
-
-                            temp.setText(tempValue+"C");
-                            humi.setText(humiValue+"%");
-                            coDense.setText(coValue+"%");
-                            smoke.setText(smokeValue+"ppm");
-                        } catch (JSONException e) {
-                            // 处理JSON解析异常
-                            e.printStackTrace();
-                        }
+                        //解码然后更改界面数据
+                        decodeJson(msg);
 
                         break;
                     case 30:  //连接失败
@@ -130,9 +108,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
-
-
-
 
 
     private void UI_init(){
@@ -275,6 +250,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (buttonId == R.id.off_button) {
                     speedImage.setImageResource(R.mipmap.fan_off);
+
                 } else if (buttonId == R.id.low_button) {
                     speedImage.setImageResource(R.mipmap.fan_low);
                 } else if (buttonId == R.id.medium_button) {
@@ -285,6 +261,33 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void decodeJson(Message msg){
+        String str=msg.obj.toString();
+        String jsonData="";
+        try {
+            String[] parts = str.split("---");
+            if (parts.length == 2) {
+                jsonData = parts[1].trim();
+                // 创建JSONObject实例并传入JSON字符串
+            }
+            JSONObject json = new JSONObject(jsonData);
+
+            double humiValue = json.getDouble("humi");
+            double tempValue = json.getDouble("temp");
+            double coValue=json.getDouble("coValue");
+            int smokeValue=json.getInt("smokeValue");
+
+            temp.setText(tempValue+"C");
+            humi.setText(humiValue+"%");
+            coDense.setText(coValue+"%");
+            smoke.setText(smokeValue+"ppm");
+        } catch (JSONException e) {
+            // 处理JSON解析异常
+            e.printStackTrace();
+        }
+
+    }
 }
 
 
