@@ -109,6 +109,23 @@ public class MainActivity extends AppCompatActivity {
         };
     }
 
+    /*
+    发送mqtt数据需要增加的负载函数
+    参数一为topic，参数二为发送的消息
+     */
+    private void publishMessage(String topic, String msg)
+    {
+        if (client == null || !client.isConnected()) {
+            return;
+        }
+        MqttMessage message = new MqttMessage();
+        message.setPayload(msg.getBytes());
+        try {
+            client.publish(topic,message);
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void UI_init(){
         ledStatus=this.findViewById(R.id.led_button);
@@ -137,9 +154,11 @@ public class MainActivity extends AppCompatActivity {
                 if(isLedOn){
                     isLedOn=false;
                     ledStatus.setImageResource(R.mipmap.led_off);
+                    publishMessage(mqtt_pub_topic,"LED_OFF");
                 }else{
                     isLedOn=true;
                     ledStatus.setImageResource(R.mipmap.led_on);
+                    publishMessage(mqtt_pub_topic,"LED_ON");
                 }
             }
         });
